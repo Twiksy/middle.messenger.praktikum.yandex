@@ -1,0 +1,19 @@
+@import "normalize.css";
+@import "./vars.css";
+@import "./mixins.css";
+@import "./pages/signIn.css";
+@import "./pages/chat.css";
+@import "./pages/profile.css";
+@import "./pages/error-page.css";
+@import "./pages/modal.css";
+
+@import "../components/title/title.css";
+@import "../components/input/input.css";
+@import "../components/button/button.css";
+@import "../components/aside/aside.css";
+@import "../components/search/search.css";
+@import "../components/chat-item/chat-item.css";
+@import "../components/messages-header/messages-header.css";
+@import "../components/messages-setting-item/messages-setting-item.css";
+@import "../components/messages-handle/messages-handle.css";
+@import "../components/profile-item/profile-item.css";

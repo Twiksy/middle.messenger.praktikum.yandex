@@ -1,0 +1,31 @@
+{
+  "name": "messanger",
+  "version": "1.0.0",
+  "description": "yandex practicum course",
+  "scripts": {
+    "start": "parcel src/index.hbs -p 3000 --no-cache",
+    "build": "parcel build src/index.hbs && node ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Twiksy",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.8.2"
+  },
+  "devDependencies": {
+    "@anikin/parcel-transformer-handlebars": "^1.0.9",
+    "autoprefixer": "^10.4.13",
+    "express": "^4.18.2",
+    "normalize.css": "^8.0.1",
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "parcel-reporter-static-files-copy": "^1.5.0",
+    "postcss": "^8.4.21",
+    "postcss-import": "^15.1.0",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nested": "^6.0.0",
+    "postcss-simple-vars": "^7.0.1"
+  },
+  "engines": {
+    "node": "=18.13.0"
+  }
+}

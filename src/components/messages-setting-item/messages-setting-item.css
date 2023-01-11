@@ -1,0 +1,12 @@
+.setting-item {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &__name {
+    white-space: nowrap;
+  }
+}

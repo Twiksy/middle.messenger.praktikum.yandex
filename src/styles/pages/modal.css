@@ -1,0 +1,27 @@
+.modals {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  max-width: 340px;
+  width: 100%;
+  padding: 40px 30px;
+  color: var(--color-red);
+  background: #121212;
+  margin: 20px;
+  border-radius: 10px;
+  @mixin shadow;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__body {
+    margin-bottom: 40px;
+  }
+
+  &__footer {}
+}
