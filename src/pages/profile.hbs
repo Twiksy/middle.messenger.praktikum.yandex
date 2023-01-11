@@ -1,0 +1,50 @@
+{{!< base}}
+	<div class="messendger__wrapper">
+    {{> 'aside/aside'}}
+    <div class="messendger__profile profile">
+      <div class="profile__content">
+        <form action="">
+          <div class="profile__top">
+            <div class="profile__avatar">
+              <input type="file" name="avatar" class="profile__avatar-input">
+              <img class="fake-img" src="../../static/fake-img.png" alt="" />
+				    </div>
+            <div class="profile__name">Иван</div>
+          </div>
+          <div class="profile__body">
+            <div class="profile__fields">
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Email" value="pochta@yandex.ru" name="email" readonly=true}}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Login" value="ivanivanov" name="login" readonly=true}}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Name" value="Ivan" name="first_name" readonly=true}}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Surname" value="Ivanov" name="second_name" readonly=true}}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Nickname" value="Ivanches" name="display_name" readonly=true}}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Phone" value="+79099673030" name="phone" readonly=true}}
+              </div>
+            </div>
+            <div class="profile__handle">
+              <div class="profile__row">
+                <a class="profile-item__label" href="#">Change profile</a>
+              </div>
+              <div class="profile__row">
+                <a class="profile-item__label" href="#">Change password</a>
+              </div>
+              <div class="profile__row">
+                <a class="profile-item__label" href="#">Logout</a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+	</div>

@@ -1,0 +1,25 @@
+<div class="chat-item {{addClass}}">
+	<div class="chat-item__wrapper">
+		<div class="chat-item__photo">
+			{{#if src}}
+				<img src="{{src}}" alt="" />
+			{{else}}
+				<span class="chat-item__photo-fake"></span>
+			{{/if}}
+		</div>
+		<div class="chat-item__content">
+			<div class="chat-item__name">{{chat-name}}</div>
+			<div class="chat-item__preview">
+				{{#if isYour}}
+					<span class="you-prefix">Вы:</span>{{chat-preview}}
+				{{else}}
+					{{chat-preview}}
+				{{/if}}
+				{{#if notification}}
+					<span class="messages-notification">{{notification}}</span>
+				{{/if}}
+				<time class="chat-item__date">{{last-time}}</time>
+			</div>
+		</div>
+	</div>
+</div>
