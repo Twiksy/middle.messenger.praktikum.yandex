@@ -2,6 +2,10 @@
   "name": "messanger",
   "version": "1.0.0",
   "description": "yandex practicum course",
+  "repository": {
+    "type": "git",
+    "url": "hhttps://github.com/Twiksy/middle.messenger.praktikum.yandex.git"
+  },
   "scripts": {
     "start": "parcel src/index.hbs -p 3000 --no-cache",
     "build": "parcel build src/index.hbs && node ./server.js",
@@ -10,10 +14,13 @@
   "author": "Twiksy",
   "license": "ISC",
   "dependencies": {
+    "@parcel/css-linux-x64-musl": "^1.13.1",
+    "lightningcss-linux-x64-gnu": "^1.18.0",
     "parcel": "^2.8.2"
   },
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "^1.0.9",
+    "@parcel/transformer-css": "^2.8.2",
     "autoprefixer": "^10.4.13",
     "express": "^4.18.2",
     "normalize.css": "^8.0.1",
