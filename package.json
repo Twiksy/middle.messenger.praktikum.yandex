@@ -8,14 +8,13 @@
   },
   "scripts": {
     "start": "parcel src/index.hbs -p 3000 --no-cache",
+    "deploy": "parcel build src/index.hbs",
     "build": "parcel build src/index.hbs && node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Twiksy",
   "license": "ISC",
   "dependencies": {
-    "@parcel/css-linux-x64-musl": "^1.13.1",
-    "lightningcss-linux-x64-gnu": "^1.18.0",
     "parcel": "^2.8.2"
   },
   "devDependencies": {
@@ -33,6 +32,6 @@
     "postcss-simple-vars": "^7.0.1"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": "=>12.0.0"
   }
 }
