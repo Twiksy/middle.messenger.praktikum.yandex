@@ -1,11 +1,6 @@
 @import "normalize.css";
 @import "./vars.css";
 @import "./mixins.css";
-@import "./pages/signIn.css";
-@import "./pages/chat.css";
-@import "./pages/profile.css";
-@import "./pages/error-page.css";
-@import "./pages/modal.css";
 
 @import "../components/title/title.css";
 @import "../components/input/input.css";
@@ -17,3 +12,9 @@
 @import "../components/messages-setting-item/messages-setting-item.css";
 @import "../components/messages-handle/messages-handle.css";
 @import "../components/profile-item/profile-item.css";
+
+@import "./pages/signIn.css";
+@import "./pages/chat.css";
+@import "./pages/profile.css";
+@import "./pages/error-page.css";
+@import "./pages/modal.css";

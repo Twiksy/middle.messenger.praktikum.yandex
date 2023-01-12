@@ -2,6 +2,12 @@
 	{{#if href}}
 		<a href="{{href}}">{{btn-text}}</a>
 	{{else}}
-		<button type="button">{{btn-text}}</button>
+		<button  
+		{{#if type}}
+		type="{{type}}"
+		{{else}}
+		type="button"
+		{{/if}}
+		>{{btn-text}}</button>
 	{{/if}}
 </div>
