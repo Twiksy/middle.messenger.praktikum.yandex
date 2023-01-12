@@ -1,0 +1,41 @@
+{{!< base}}
+	<div class="messendger__wrapper">
+    {{> 'aside/aside'}}
+    <div class="messendger__profile profile">
+      <div class="profile__content">
+        <form action="">
+          <div class="profile__top">
+            <div class="profile__avatar">
+              <input type="file" name="avatar" class="profile__avatar-input">
+              <img class="fake-img" src="../../static/fake-img.png" alt="fake-img" />
+				    </div>
+          </div>
+          <div class="profile__body">
+            <div class="profile__fields">
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Email" value="pochta@yandex.ru" name="email" }}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Login" value="ivanivanov" name="login" }}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Name" value="Ivan" name="email" }}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Surname" value="Ivanov" name="email" }}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Nickname" value="Ivanches" name="email" }}
+              </div>
+              <div class="profile__row">
+                {{> 'profile-item/profile-item' label="Phone" value="+79099673030" name="phone" }}
+              </div>
+            </div>
+            <div class="profile__handle">
+              {{> 'button/button' type="submit" btn-text='Save change'}}
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+	</div>

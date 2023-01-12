@@ -1,0 +1,77 @@
+.messages-handle {
+  padding-top: 15px;
+  border-top: 1px solid var(--color-red);
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__media-add {
+    svg {
+      fill: #999999;
+      transition: all ease .2s;
+    }
+
+    &:hover {
+      svg {
+        fill: var(--color-red);
+      }
+    }
+  }
+
+  &__media-content {
+    bottom: calc(100% + 30px);
+    left: 0;
+  }
+
+  &__input {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input-text {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background: #1A1A1A;
+    border-radius: 30px;
+    color: #fff;
+    border: 1px solid #1a1a1a;
+    outline: none;
+    margin: 0 20px;
+
+    &:hover {
+      border-color: var(--color-red);
+    }
+
+    &:focus {
+      border-color: var(--color-red);
+    }
+  }
+
+  &__input-btn {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.btn-reset {}
+
+.cloud-window {
+
+  &__list {}
+
+  &__elem {}
+}
