@@ -1,8 +1,0 @@
-{
-  "plugins": {
-    "postcss-mixins": true,
-    "postcss-import": true,
-    "postcss-simple-vars": true,
- 		"postcss-nested": true
-  }
-}
