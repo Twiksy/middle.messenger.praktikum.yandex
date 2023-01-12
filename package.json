@@ -15,7 +15,7 @@
   "author": "Twiksy",
   "license": "ISC",
   "dependencies": {
-    "parcel": "^2.8.2"
+    "parcel": "2.8.2"
   },
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "1.0.9",
