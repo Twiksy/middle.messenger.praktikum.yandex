@@ -1,11 +1,7 @@
 const express = require("express");
 
 const app = express();
-<<<<<<< HEAD
-const PORT = 3000;
-=======
 const PORT = process.env.PORT || 3000;
->>>>>>> dev
 
 app.use(express.static("./dist"));
 
