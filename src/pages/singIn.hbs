@@ -1,0 +1,16 @@
+{{!< base}}
+  <div class="form-container">
+    <div class="form-container__block">
+      <form action="">
+        {{> 'title/title' tag="h2" text="Sign In" addClass="form-container__title"}}
+        <div class="form-container__fields">
+          {{> 'input/input' name="login" label-text="Login" placeholder=""}}
+          {{> 'input/input' name="password" label-text="Password" type="password" placeholder=""}}
+        </div>
+        <div class="form-container__btns">
+          {{> 'button/button' type="submit" btn-text="Enter"}}
+          {{> 'button/button' href="/" addClass="btn-reset" btn-text="Create account"}}
+        </div>
+      </form>
+    </div>
+  </div>  

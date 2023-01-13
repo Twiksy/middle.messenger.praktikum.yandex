@@ -1,0 +1,112 @@
+.messages-header {
+  border-bottom: 1px solid var(--color-red);
+  padding-bottom: 15px;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__user-photo {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+
+  &__photo-fake {
+    background: #242424;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  &__user-name {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--color-red);
+  }
+
+  &__settings {
+    position: relative;
+  }
+
+  &__settings-btn {
+    button {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 50%;
+      transition: all ease .2s;
+
+      span {
+        display: block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--color-red);
+        transition: all ease .2s;
+
+        &:not(:last-child) {
+          margin-bottom: 4px;
+        }
+      }
+
+      &:hover {
+        background: var(--color-red);
+
+        span {
+          border-radius: 50%;
+          background: #fff;
+        }
+      }
+
+    }
+
+    &.active {
+      button {
+        background: var(--color-red);
+
+        span {
+          border-radius: 50%;
+          background: #fff;
+        }
+      }
+    }
+  }
+
+  &__settings-content {
+    top: calc(100% + 30px);
+    right: 0;
+  }
+}
+
+.btn-reset {}
+
+.cloud-window {
+  position: absolute;
+  background: #242424;
+  box-shadow: 5px 5px 16px 1px rgba(181, 0, 0, 0.26);
+  border-radius: 12px;
+  padding: 15px;
+  @mixin shadow;
+
+  &__list {}
+
+  &__elem {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
