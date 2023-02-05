@@ -1,7 +1,8 @@
+import { Profile } from './pages/profile/Profile';
+import { SignInPage } from './pages/SingIn/SingIn';
 import { Aside } from './blocks/aside/Aside';
 import { Messagehandle } from './blocks/messageHandle/messageHandle';
 import { Messageheader } from './blocks/messageHeader/messageHeader';
-import { StartPageComponent } from './blocks/startPage/StartPageComponent';
 import { AsideItem } from './components/asideItem/AsideItem';
 import { Button } from "./components/button/Button";
 import { ButtonImg } from './components/button/ButtonImg';
@@ -16,6 +17,13 @@ import { Title } from './components/title/Title';
 import { LayoutAside } from './layouts/AsideLayout/Chat';
 import { LayoutChat } from './layouts/chat/Chat';
 import { registerComponent, renderDOM } from './utils';
+import { Register } from './pages/register/Register';
+import { EmptyChat } from './pages/emptyChat/EmptyChat';
+import { OpenedChat } from './pages/openedChat/OpenedChat';
+import { ProfileChange } from './pages/profileChange/ProfileChange';
+import { ErrorPage } from './pages/404/ErrorPage';
+import { Error500 } from './pages/500/Error500';
+import { Modals } from './pages/modals/Modals';
 
 
 registerComponent(Button);
@@ -38,22 +46,9 @@ registerComponent(ButtonImg);
 document.addEventListener("DOMContentLoaded", function () {
 
 
-	const startPage = new StartPageComponent({
-		links: [
-			{ linkText: "Sign In Page", href: "./pages/singIn.html" },
-			{ linkText: "Registration Page", href: "./pages/register.html" },
-			{ linkText: "Empty Chat", href: "./pages/emptyChat.html" },
-			{ linkText: "Opened Chat", href: "./pages/openedChat.html" },
-			{ linkText: "Profile", href: "./pages/profile.html" },
-			{ linkText: "Change Profile", href: "./pages/profileChange.html" },
-			{ linkText: "Change Password", href: "./pages/changePassword.html" },
-			{ linkText: "404", href: "./pages/404.html" },
-			{ linkText: "500", href: "./pages/500.html" },
-			{ linkText: "Modal", href: "./pages/modals.html" },
-		],
-	});
+	const sign = new SignInPage();
 
-	renderDOM('app', startPage);
+	renderDOM(sign);
 
 });
 

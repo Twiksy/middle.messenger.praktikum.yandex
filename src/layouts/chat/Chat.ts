@@ -1,7 +1,6 @@
 import { IChatItem } from "./../../components/chatItem/chatItem";
 import { Block } from "../../utils";
 
-// interface IChats{Array: []}
 type IChats = Array<IChatItem>;
 
 const chats: IChats = [
@@ -44,7 +43,7 @@ export class LayoutChat extends Block<ILayoutChatProps> {
 				{{{Aside}}}
 				
 				<div class="messendger__chats">
-					{{{Search addClass="messendger__chats-search" }}}
+					{{{Search addClass="messendger__chats-search"}}}
 					<ul class="messendger__chats-list">
 					${chatsItems.join("")}
 					</ul>

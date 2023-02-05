@@ -18,7 +18,7 @@ export class SignInPage extends Block {
         let errors = 0;
         const fields: fieldsType = []
         inputs.forEach((inp) => {
-          const input: HTMLInputElement = inp[1].querySelector('input')
+          const input = inp[1].querySelector('input')
           const errorText = validate(input)
           inp[1].dataset.error = errorText;
           if (errorText !== '') {

@@ -29,8 +29,8 @@
 
 .btn-reset {
 
-  &>button,
-  &>a {
+  button,
+  a {
     display: block;
     font-family: inherit;
     color: var(--color-red);
