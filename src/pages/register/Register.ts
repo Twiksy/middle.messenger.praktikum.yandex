@@ -4,6 +4,7 @@ import { Block } from "../../utils";
 
 
 export class Register extends Block {
+  static componentName = 'Register';
   protected getStateFromProps() {
     this.state = {
       onValidate: (e: Event) => {

@@ -1,7 +1,8 @@
-import {Block} from "../../utils";
+import { Block } from "../../utils";
 export class ErrorPage extends Block {
-	protected render(): string {
-		return `
+  static componentName = 'ErrorPage';
+  protected render(): string {
+    return `
     <section class="error-page">
     <div class="error-page__content">
       {{{Title text="404" addClass="error-page__code"}}}
@@ -12,5 +13,5 @@ export class ErrorPage extends Block {
     </div>
   </section> 
     `;
-	}
+  }
 }

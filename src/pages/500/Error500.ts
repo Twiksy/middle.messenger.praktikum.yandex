@@ -1,5 +1,6 @@
-import {Block} from "../../utils";
+import { Block } from "../../utils";
 export class Error500 extends Block {
+	static componentName = 'Error500';
 	protected render(): string {
 		return `
     <section class="error-page">

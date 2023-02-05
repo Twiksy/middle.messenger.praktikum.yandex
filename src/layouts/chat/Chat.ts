@@ -29,6 +29,7 @@ const chats: IChats = [
 ];
 
 export class LayoutChat extends Block<ILayoutChatProps> {
+	static componentName = 'LayoutChat';
 	protected render(): string {
 		const chatsItems = chats.map((el) => {
 			return `<li class="messendger__chats-elem">

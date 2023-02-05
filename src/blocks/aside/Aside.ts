@@ -20,6 +20,7 @@ const items: ItemsType = [
 ];
 
 export class Aside extends Block {
+  static componentName = 'Aside';
   protected render(): string {
     const itemsLi = items.map(
       (i) => {

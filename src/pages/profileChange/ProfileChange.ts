@@ -2,6 +2,7 @@ import { Block } from "../../utils";
 import { validate } from "../../helpers/validate";
 import { fieldType, fieldsType } from "../../types/validateTypes";
 export class ProfileChange extends Block {
+  static componentName = 'ProfileChange';
   protected getStateFromProps(): void {
     this.state = {
       onValidate: (e: Event) => {

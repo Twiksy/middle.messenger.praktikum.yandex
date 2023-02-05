@@ -1,8 +1,9 @@
-import {Block} from "../../utils";
+import { Block } from "../../utils";
 
 export class EmptyChat extends Block {
-	protected render(): string {
-		return `
+  static componentName = 'EmptyChat';
+  protected render(): string {
+    return `
 	  {{#LayoutChat}}
     <div class="messandger-content messandger-content_empty">
       <div class="messandger-content__description">
@@ -11,5 +12,5 @@ export class EmptyChat extends Block {
     </div>
     {{/LayoutChat }}
     `;
-	}
+  }
 }

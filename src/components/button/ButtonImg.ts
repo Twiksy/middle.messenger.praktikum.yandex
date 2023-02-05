@@ -11,6 +11,7 @@ interface IButtonProps {
 }
 
 export class ButtonImg extends Block {
+	static componentName = 'ButtonImg';
 	constructor({ src, href, type, addClass, onClick }: IButtonProps) {
 		super({ src, href, type, addClass, events: { click: onClick } });
 	}

@@ -9,6 +9,7 @@ interface IMessageheader {
 }
 
 export class Messageheader extends Block {
+	static componentName = 'Messageheader';
 	constructor({ userName, src }: IMessageheader) {
 		super({ userName, src });
 	}

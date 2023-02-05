@@ -1,6 +1,7 @@
 import { Block } from "../../utils";
 import "./input.css";
 interface IInputProps {
+
 	labelText: string;
 	name: string;
 	placeholder?: string;
@@ -14,6 +15,7 @@ interface IInputProps {
 }
 
 export class InputBlock extends Block {
+	static componentName = 'InputBlock';
 	constructor({
 		labelText,
 		name,

@@ -1,7 +1,8 @@
-import {Block} from "../../utils";
+import { Block } from "../../utils";
 export class Modals extends Block {
-	protected render(): string {
-		return `
+  static componentName = 'Modals';
+  protected render(): string {
+    return `
     <div class="modals">
     <div class="modal">
       <div class="modal__title">Add user</div>
@@ -24,5 +25,5 @@ export class Modals extends Block {
     </div>
   </div>
     `;
-	}
+  }
 }

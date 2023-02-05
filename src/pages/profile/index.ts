@@ -13,7 +13,7 @@ import { ChatItem } from "../../components/chatItem/chatItem";
 import { LayoutChat } from "../../layouts/chat/Chat";
 import { LayoutAside } from "../../layouts/AsideLayout/Chat";
 import { InputBlock } from "../../components/input/inputBlock";
-import { MainLink } from "../../components/mainLink/MainLink";
+
 import { ButtonImg } from "../../components/button/ButtonImg";
 import { Profile } from "./Profile";
 
@@ -31,7 +31,6 @@ registerComponent(ChatItem);
 registerComponent(LayoutChat);
 registerComponent(LayoutAside);
 registerComponent(InputBlock);
-registerComponent(MainLink);
 registerComponent(ButtonImg);
 
 

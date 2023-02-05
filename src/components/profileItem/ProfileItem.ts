@@ -14,6 +14,7 @@ interface IProfileItem {
 }
 
 export class ProfileItem extends Block {
+	static componentName = 'ProfileItem';
 	constructor({ label, value, type, name, readonly, onChange,
 		onInput,
 		onBlur,

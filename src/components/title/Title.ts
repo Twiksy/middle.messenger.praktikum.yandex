@@ -1,4 +1,4 @@
-import {Block} from "../../utils";
+import { Block } from "../../utils";
 import "./title.css";
 import template from "./title.hbs";
 
@@ -9,10 +9,13 @@ interface ITitle {
 }
 
 export class Title extends Block {
-	constructor({tag, addClass, text}: ITitle) {
-		super({tag, addClass, text});
+	static componentName = 'Title';
+	constructor({ tag, addClass, text }: ITitle) {
+		super({ tag, addClass, text });
 	}
 	protected render() {
-		return template({...this.props});
+		console.log(this);
+
+		return template({ ...this.props });
 	}
 }

@@ -11,6 +11,7 @@ export interface IChatItem {
 	isYour?: boolean;
 }
 export class ChatItem extends Block {
+	static componentName = 'ChatItem';
 	constructor({
 		addClass,
 		src,

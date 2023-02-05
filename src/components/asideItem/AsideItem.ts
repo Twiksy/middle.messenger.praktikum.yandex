@@ -1,4 +1,4 @@
-import {Block} from "../../utils";
+import { Block } from "../../utils";
 import "./asideItem.css";
 import template from "./asideItem.hbs";
 
@@ -8,11 +8,12 @@ interface IAsideItemProps {
 }
 
 export class AsideItem extends Block {
-	constructor({hoverText, svgText}: IAsideItemProps) {
-		super({hoverText, svgText});
+	static componentName = 'AsideItem';
+	constructor({ hoverText, svgText }: IAsideItemProps) {
+		super({ hoverText, svgText });
 	}
 
 	protected render(): string {
-		return template({...this.props});
+		return template({ ...this.props });
 	}
 }

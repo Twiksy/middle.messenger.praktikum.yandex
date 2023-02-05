@@ -67,14 +67,19 @@
   }
 
   &__input-btn {
+    padding: 0;
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     button {
       padding: 0;
-      flex: 0 0 28px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--color-red);
-      display: flex;
+      display: flex !important;
       align-items: center;
       justify-content: center;
     }

@@ -1,5 +1,6 @@
 import { Block } from "../../utils";
 export class Profile extends Block {
+	static componentName = 'Profile';
 	protected render(): string {
 		return `
     {{#LayoutAside}}

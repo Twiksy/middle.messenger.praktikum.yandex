@@ -90,6 +90,11 @@ body {
   }
 }
 
+.rerenderLinks {
+  text-transform: uppercase;
+  padding-right: 10px;
+}
+
 .btn-reset {
 
   button,

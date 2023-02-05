@@ -1,6 +1,8 @@
 import { Block } from "../../utils";
 
+
 export class OpenedChat extends Block {
+  static componentName = 'OpenedChat';
   protected render(): string {
     return `
     {{#LayoutChat}}
@@ -24,16 +26,7 @@ export class OpenedChat extends Block {
               </time>
             </div>
           </div>
-          <div class="chat-messages__row">
-    				<div class="chat-messages__message chat-messages__message_media">
-              <div class="chat-messages__message-img">
-                <img src="../../../static/chatImg.png" alt="media img">
-              </div>
-              <time class="chat-messages__message-time">
-                11:56
-              </time>
-            </div>
-          </div>
+          
           <div class="chat-messages__row">
     				<div class="chat-messages__message chat-messages__message_your">
               Круто! 

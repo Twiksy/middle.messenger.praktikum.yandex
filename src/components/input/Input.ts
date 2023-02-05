@@ -15,6 +15,7 @@ interface IInputProps {
 }
 
 export class Input extends Block {
+	static componentName = 'Input';
 	constructor({
 		name,
 		placeholder,

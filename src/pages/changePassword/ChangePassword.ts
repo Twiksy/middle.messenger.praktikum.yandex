@@ -1,10 +1,9 @@
 import { Block } from "../../utils";
 
 export class ChangePassword extends Block {
+  static componentName = 'ChangePassword';
   protected render(): string {
     return `
- 
-   
     <div class="messendger__profile profile">
       <div class="profile__content">
         <form action="">

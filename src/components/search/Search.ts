@@ -7,6 +7,7 @@ interface ISearch {
 }
 
 export class Search extends Block {
+	static componentName = 'Search';
 	constructor({ addClass }: ISearch) {
 		super({ addClass });
 	}
