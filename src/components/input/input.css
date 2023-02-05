@@ -1,6 +1,16 @@
 .input-block {
   position: relative;
 
+  &::before {
+    content: attr(data-error);
+    position: absolute;
+    bottom: calc(0px - 12px);
+    font-size: 9px;
+    line-height: 1;
+    left: 0;
+    color: var(--color-red);
+  }
+
   &::after {
     content: "";
     width: 100%;
@@ -42,4 +52,5 @@
     outline: none;
     color: #fff;
   }
+
 }

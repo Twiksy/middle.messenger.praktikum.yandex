@@ -5,6 +5,7 @@
   --color-red: #B50000;
   --color-red-second: rgba(181, 0, 0, 0.65);
   --color-dark: #121212;
+  --shadow: 5px 5px 16px 1px rgba(181, 0, 0, 0.26);
 }
 
 html,
@@ -60,6 +61,62 @@ body {
   line-height: 1.2;
 }
 
+.btn {
+
+  button,
+  a {
+    cursor: pointer;
+    display: block;
+    max-width: 280px;
+    width: 100%;
+    color: #fff;
+    font-family: inherit;
+    background: var(--color-red-second);
+    transition: all ease .2s;
+    margin: 0 auto;
+    outline: none;
+    text-align: center;
+    border-radius: 8px;
+    padding: 12px 50px;
+    border: none;
+
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+
+    &:hover {
+      background: var(--color-red);
+    }
+  }
+}
+
+.rerenderLinks {
+  text-transform: uppercase;
+  padding-right: 10px;
+}
+
+.btn-reset {
+
+  button,
+  a {
+    display: block;
+    font-family: inherit;
+    color: var(--color-red);
+    transition: all ease .2s;
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-red);
+      background: none;
+      box-shadow: none;
+    }
+  }
+}
+
 .main {
   max-width: 1440px;
   width: 100%;
@@ -84,6 +141,10 @@ body {
   }
 
   &__list-link {}
+}
+
+#app {
+  min-height: 100vh;
 }
 
 /* Firefox */

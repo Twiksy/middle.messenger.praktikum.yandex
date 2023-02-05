@@ -14,7 +14,7 @@
     padding: 50px 30px 30px;
     border-radius: 10px;
     background: #121212;
-    @mixin shadow;
+    box-shadow: var(--shadow);
   }
 
   &__fields {
