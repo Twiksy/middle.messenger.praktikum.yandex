@@ -12,7 +12,7 @@
   background: #121212;
   margin: 20px;
   border-radius: 10px;
-  @mixin shadow;
+  box-shadow: var(--shadow);
 
   &__title {
     text-align: center;

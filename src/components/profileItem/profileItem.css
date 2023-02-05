@@ -1,0 +1,40 @@
+.profile-item {
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    &::before {
+      content: attr(data-error);
+      position: absolute;
+      bottom: calc(0px - 25px);
+      font-size: 9px;
+      line-height: 1;
+      right: 0;
+      color: var(--color-red);
+    }
+
+    .input-block__input {
+      color: #999;
+      background: none;
+      border: none;
+      text-align: right;
+      outline: none;
+    }
+  }
+
+  &__label {
+    margin-right: 15px;
+    color: var(--color-red);
+    font-weight: bold;
+  }
+
+  &__input {
+    color: #999;
+    background: none;
+    border: none;
+    text-align: right;
+    outline: none;
+  }
+}
