@@ -1,14 +1,7 @@
 <div class="btn {{addClass}}">
-		{{#if href}}
-			<a href="{{href}}">{{textBtn}}</a>
-		{{else}}
-			<button  
-			{{#if type}}
-			type="{{type}}"
-			{{else}}
-			type="button"
-			{{/if}}
-			onClick="{{onClick}}"
-			>{{textBtn}}</button>
-		{{/if}}
+	{{#if href}}
+	<a href="{{href}}">{{textBtn}}</a>
+	{{else}}
+	<button {{#if type}} type="{{type}}" {{else}} type="button" {{/if}} onClick="{{onClick}}">{{textBtn}}</button>
+	{{/if}}
 </div>

@@ -16,25 +16,16 @@
     "utils": "./src/utils",
     "components": "./src/components",
     "pages": "./src/pages"
-    },
+  },
   "author": "Twiksy",
   "license": "ISC",
   "dependencies": {
     "@anikin/parcel-transformer-handlebars-precompile": "1.0.1",
-    "babel-core": "6.26.3",
     "eslint-plugin-react": "7.31.11",
     "handlebars": "4.7.7",
     "nanoid": "4.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.8",
-    "@parcel/transformer-sass": "2.7.0",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-stage-0": "6.24.1",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-jsx-a11y": "6.6.1",
-    "stylelint": "14.16.1",
     "@anikin/parcel-transformer-handlebars": "1.0.9",
     "@parcel/transformer-css": "2.8.2",
     "@parcel/transformer-inline-string": "2.8.3",
@@ -42,7 +33,10 @@
     "@typescript-eslint/eslint-plugin": "5.49.0",
     "@typescript-eslint/parser": "5.49.0",
     "autoprefixer": "10.4.13",
-     "eslint": "8.32.0",
+    "eslint": "8.32.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.6.1",
     "express": "4.18.2",
     "normalize.css": "8.0.1",
     "parcel": "2.8.3",
@@ -54,6 +48,7 @@
     "postcss-mixins": "9.0.4",
     "postcss-nested": "6.0.0",
     "postcss-simple-vars": "7.0.1",
+    "stylelint": "14.16.1",
     "typescript": "4.9.4"
   },
   "targets": {
