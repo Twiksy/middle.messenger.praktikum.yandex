@@ -8,7 +8,7 @@ interface IMessageheader {
 	src?: string;
 }
 
-export class Messageheader extends Block {
+export class Messageheader extends Block<IMessageheader> {
 	static componentName = 'Messageheader';
 	constructor({ userName, src }: IMessageheader) {
 		super({ userName, src });

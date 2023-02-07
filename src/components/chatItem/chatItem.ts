@@ -10,7 +10,7 @@ export interface IChatItem {
 	notification?: string;
 	isYour?: boolean;
 }
-export class ChatItem extends Block {
+export class ChatItem extends Block<IChatItem> {
 	static componentName = 'ChatItem';
 	constructor({
 		addClass,

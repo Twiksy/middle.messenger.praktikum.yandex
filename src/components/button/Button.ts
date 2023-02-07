@@ -4,13 +4,14 @@ import template from "./Button.hbs";
 
 interface IButtonProps {
 	textBtn: string;
-	onClick?: () => void;
 	href?: string;
 	type?: string;
 	addClass?: string;
+	onClick?: () => void;
+	events?: Record<string, Record<string, (event: Event) => void> | unknown>;
 }
 
-export class Button extends Block {
+export class Button extends Block<IButtonProps> {
 	static componentName = 'Button';
 	constructor({ textBtn, href, type, addClass, onClick }: IButtonProps) {
 		super({ textBtn, href, type, addClass, events: { click: onClick } });

@@ -13,7 +13,7 @@ interface IProfileItem {
 	onFocus?: () => void;
 }
 
-export class ProfileItem extends Block {
+export class ProfileItem extends Block<IProfileItem> {
 	static componentName = 'ProfileItem';
 	constructor({ label, value, type, name, readonly, onChange,
 		onInput,
