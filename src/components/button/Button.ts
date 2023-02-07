@@ -1,6 +1,6 @@
 import { Block } from "../../utils";
 import "./button.css";
-import template from "./Button.hbs";
+import template from "./button.hbs";
 
 interface IButtonProps {
 	textBtn: string;
