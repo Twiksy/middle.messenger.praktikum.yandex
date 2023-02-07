@@ -8,7 +8,7 @@ interface ITitle {
 	text: string;
 }
 
-export class Title extends Block {
+export class Title extends Block<ITitle> {
 	static componentName = 'Title';
 	constructor({ tag, addClass, text }: ITitle) {
 		super({ tag, addClass, text });

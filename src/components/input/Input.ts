@@ -12,9 +12,10 @@ interface IInputProps {
 	onInput?: () => void;
 	onBlur?: () => void;
 	onFocus?: () => void;
+	events?: Record<string, Record<string, (event: Event) => void> | unknown>;
 }
 
-export class Input extends Block {
+export class Input extends Block<IInputProps> {
 	static componentName = 'Input';
 	constructor({
 		name,
@@ -27,6 +28,7 @@ export class Input extends Block {
 		onBlur,
 		onInput,
 		onFocus,
+
 	}: IInputProps) {
 		super({
 			name,

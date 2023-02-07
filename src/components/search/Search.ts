@@ -3,10 +3,9 @@ import "./search.css";
 import template from "./search.hbs";
 interface ISearch {
 	addClass?: string;
-	lupeIcon: string;
 }
 
-export class Search extends Block {
+export class Search extends Block<ISearch> {
 	static componentName = 'Search';
 	constructor({ addClass }: ISearch) {
 		super({ addClass });

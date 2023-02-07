@@ -4,13 +4,14 @@ import "./button.css";
 
 interface IButtonProps {
 	src: string;
-	onClick?: () => void;
 	href?: string;
 	type?: string;
 	addClass?: string;
+	onClick?: () => void;
+	events?: Record<string, Record<string, (event: Event) => void> | unknown>;
 }
 
-export class ButtonImg extends Block {
+export class ButtonImg extends Block<IButtonProps> {
 	static componentName = 'ButtonImg';
 	constructor({ src, href, type, addClass, onClick }: IButtonProps) {
 		super({ src, href, type, addClass, events: { click: onClick } });

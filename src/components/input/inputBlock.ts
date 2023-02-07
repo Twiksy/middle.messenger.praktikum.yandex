@@ -14,7 +14,7 @@ interface IInputProps {
 	onFocus?: () => void;
 }
 
-export class InputBlock extends Block {
+export class InputBlock extends Block<IInputProps> {
 	static componentName = 'InputBlock';
 	constructor({
 		labelText,

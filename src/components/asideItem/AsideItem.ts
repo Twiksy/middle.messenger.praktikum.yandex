@@ -7,7 +7,7 @@ interface IAsideItemProps {
 	svgText: string;
 }
 
-export class AsideItem extends Block {
+export class AsideItem extends Block<IAsideItemProps> {
 	static componentName = 'AsideItem';
 	constructor({ hoverText, svgText }: IAsideItemProps) {
 		super({ hoverText, svgText });

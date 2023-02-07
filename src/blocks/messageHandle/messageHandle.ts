@@ -5,7 +5,7 @@ import faile from "../../../static/icons/faile.svg";
 import location from "../../../static/icons/location.svg";
 import { validate } from "../../helpers/validate";
 import './messageHandle.css'
-import { fieldType, fieldsType } from "../../types/validateTypes";
+import { fieldType } from "../../types/validateTypes";
 export class Messagehandle extends Block {
 	static componentName = 'Messagehandle';
 	protected getStateFromProps() {

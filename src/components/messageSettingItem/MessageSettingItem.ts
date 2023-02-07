@@ -8,7 +8,7 @@ interface IMessageSettingItemProps {
 	settingName: string;
 }
 
-export class MessageSettingItem extends Block {
+export class MessageSettingItem extends Block<IMessageSettingItemProps> {
 	static componentName = 'MessageSettingItem';
 	constructor({ src, alt, settingName }: IMessageSettingItemProps) {
 		super({ src, alt, settingName });
