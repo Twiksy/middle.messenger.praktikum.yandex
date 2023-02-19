@@ -2,9 +2,9 @@ export type Listener<T extends unknown[] = any[]> = (...args: T) => void;
 
 export default class EventBus<
 	E extends string = string,
-	M extends {[K in E]: unknown[]} = Record<E, any[]>
+	M extends { [K in E]: unknown[] } = Record<E, any[]>
 > {
-	private listeners: {[key in E]?: Listener<M[E]>[]} = {};
+	private listeners: { [key in E]?: Listener<M[E]>[] } = {};
 
 	on(event: E, callback: Listener<M[E]>) {
 		if (!this.listeners[event]) {
@@ -33,5 +33,8 @@ export default class EventBus<
 		this.listeners[event]!.forEach(function (listener) {
 			listener(...args);
 		});
+	}
+	destroy() {
+		this.listeners = {};
 	}
 }

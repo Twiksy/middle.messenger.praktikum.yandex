@@ -16,5 +16,5 @@ registerComponent(InputBlock);
 document.addEventListener("DOMContentLoaded", function () {
 	const page = new Register();
 
-	renderDOM(page);
+	renderDOM('app', page);
 });

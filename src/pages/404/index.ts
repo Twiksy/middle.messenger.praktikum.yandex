@@ -9,5 +9,5 @@ registerComponent(Title);
 document.addEventListener("DOMContentLoaded", function () {
   const page = new ErrorPage();
 
-  renderDOM(page);
+  renderDOM('app', page);
 });

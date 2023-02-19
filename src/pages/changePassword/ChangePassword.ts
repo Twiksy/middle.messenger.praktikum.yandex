@@ -1,7 +1,18 @@
 import { Block } from "../../utils";
-
+import router from "../../utils/Router/Router"
+import { routesPaths } from '../../utils/Router/routesEnum';
 export class ChangePassword extends Block {
   static componentName = 'ChangePassword';
+
+  protected getStateFromProps() {
+    this.state = {
+      ChangePass: (e: Event) => {
+        e.preventDefault()
+        router.go(routesPaths.sign)
+      }
+    };
+  }
+
   protected render(): string {
     return `
     <div class="messendger__profile profile">
@@ -26,7 +37,7 @@ export class ChangePassword extends Block {
               </div>
             </div>
             <div class="profile__handle">
-              {{{Button type="submit" textBtn='Save change'}}}
+              {{{Button type="submit" textBtn='Save change' onClick=ChangePass}}}
             </div>
           </div>
         </form>

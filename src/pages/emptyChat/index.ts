@@ -21,5 +21,5 @@ registerComponent(Title);
 document.addEventListener("DOMContentLoaded", function () {
   const page = new EmptyChat();
 
-  renderDOM(page);
+  renderDOM('app', page);
 });

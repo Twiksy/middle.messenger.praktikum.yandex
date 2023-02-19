@@ -15,5 +15,5 @@ registerComponent(Button);
 document.addEventListener("DOMContentLoaded", function () {
   const page = new Modals();
 
-  renderDOM(page);
+  renderDOM('app', page);
 });

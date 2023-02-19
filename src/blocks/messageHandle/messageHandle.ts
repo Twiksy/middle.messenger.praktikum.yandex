@@ -24,7 +24,6 @@ export class Messagehandle extends Block {
 				const fields: Array<fieldType> = []
 				inputs.forEach((inp) => {
 					const input = inp[1]
-					console.log(input);
 
 					const errorText = validate(input)
 					inp[1].parentNode.dataset.error = errorText;

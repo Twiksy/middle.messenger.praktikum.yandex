@@ -18,5 +18,5 @@ registerComponent(InputBlock);
 
 document.addEventListener("DOMContentLoaded", function () {
 	const page = new SignIn();
-	renderDOM(page);
+	renderDOM('app', page);
 });

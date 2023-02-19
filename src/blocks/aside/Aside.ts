@@ -1,3 +1,4 @@
+import { pathNames } from './../../utils/Router/routesEnum';
 import { Block } from "../../utils";
 import "./aside.css";
 import logo from "../../../static/logo.svg";
@@ -6,26 +7,49 @@ import chatsIcon from "../../../static/icons/chats.svg";
 import settingIcon from "../../../static/icons/setting.svg";
 import exitIcon from "../../../static/icons/exit.svg";
 
-interface IItem {
-  hoverText: string;
-  svgText: string;
-}
+import router from "../../utils/Router/Router"
+import { routesPaths } from '../../utils/Router/routesEnum';
 
-type ItemsType = Array<IItem>;
-const items: ItemsType = [
-  { hoverText: "Profile", svgText: profileIcon },
-  { hoverText: "Chats", svgText: chatsIcon },
-  { hoverText: "Settings", svgText: settingIcon },
-  { hoverText: "Exit", svgText: exitIcon }
-];
+// interface IItem {
+//   hoverText: string;
+//   svgText: string;
+// }
+
+// type ItemsType = Array<IItem>;
+// type typeState = {
+//   items: ItemsType
+// }
 
 export class Aside extends Block {
   static componentName = 'Aside';
+
+
+
+  protected pathNames: pathNames
+  protected getStateFromProps() {
+    this.state = {
+      onSignIn: (e: Event) => {
+        e.preventDefault()
+        const pathName = e.target.closest('.messendger__aside-link').getAttribute('pathName')
+        router.go(routesPaths[pathName])
+      },
+      items: [
+        {
+          hoverText: "Profileee", svgText: profileIcon, pathName: "profile"
+        },
+        { hoverText: "Chats", svgText: chatsIcon, pathName: "chats" },
+        { hoverText: "Settings", svgText: settingIcon, pathName: "setting" },
+        { hoverText: "Exit", svgText: exitIcon, pathName: "sign" }
+      ],
+
+    };
+  }
+
   protected render(): string {
-    const itemsLi = items.map(
+    const itemsLi = this.state.items.map(
       (i) => {
         return `<li class="messendger__aside-elem">
-        {{{AsideItem hoverText="${i.hoverText}" svgText="${i.svgText}"}}}
+        {{{AsideItem hoverText="${i.hoverText}" svgText="${i.svgText}" pathName="${i.pathName}" pathChange=onSignIn}}}
         </li>`
       }
     );

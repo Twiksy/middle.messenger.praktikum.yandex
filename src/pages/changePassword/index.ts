@@ -17,5 +17,5 @@ registerComponent(InputBlock)
 document.addEventListener("DOMContentLoaded", function () {
   const page = new ChangePassword();
 
-  renderDOM(page);
+  renderDOM('app', page);
 });

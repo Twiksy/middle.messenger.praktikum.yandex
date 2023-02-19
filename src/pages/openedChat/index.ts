@@ -34,5 +34,5 @@ registerComponent(ButtonImg);
 document.addEventListener("DOMContentLoaded", function () {
   const page = new OpenedChat();
 
-  renderDOM(page);
+  renderDOM('app', page);
 });

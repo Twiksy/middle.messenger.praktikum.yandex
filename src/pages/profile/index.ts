@@ -37,5 +37,5 @@ registerComponent(ButtonImg);
 document.addEventListener("DOMContentLoaded", function () {
   const page = new Profile();
 
-  renderDOM(page);
+  renderDOM('app', page);
 });

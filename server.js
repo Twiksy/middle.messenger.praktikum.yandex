@@ -7,11 +7,31 @@ app.use(express.static("./dist"));
 
 function start() {
 	try {
-		app.listen(PORT, () => {
-			console.log(`Example app listening on port ${PORT}`);
+		app.listen(PORT,() => {
+			const fields: fieldType = {}
+			inputs.forEach((inp) => {
+				const input: HTMLInputElement = inp[1].querySelector('input')
+				const errorText = validate(input)
+				inp[1].dataset.error = errorText;
+				if (errorText !== '') {
+					errors += 1
+				}
+
+				fields[input.name] = input.value
+			})(`Example app listening on port ${PORT}`);
 		});
 	} catch (e) {
-		console.log(e);
+		 const fields: fieldType = {}
+        inputs.forEach((inp) => {
+          const input: HTMLInputElement = inp[1].querySelector('input')
+          const errorText = validate(input)
+          inp[1].dataset.error = errorText;
+          if (errorText !== '') {
+            errors += 1
+          }
+
+          fields[input.name] = input.value
+        })(e);
 	}
 }
 

@@ -17,7 +17,7 @@ export class ProfileChange extends Block {
         const inputs = Object.entries(this.refs)
 
         let errors = 0;
-        const fields: fieldsType = []
+        const fields: fieldType = {}
         inputs.forEach((inp) => {
           const input: HTMLInputElement = inp[1].querySelector('input')
           const errorText = validate(input)
@@ -25,9 +25,8 @@ export class ProfileChange extends Block {
           if (errorText !== '') {
             errors += 1
           }
-          const inpObj: fieldType = {}
-          inpObj[input.name] = input.value
-          fields.push(inpObj)
+
+          fields[input.name] = input.value
         })
         if (errors === 0) {
           console.log(fields);

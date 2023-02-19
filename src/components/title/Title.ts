@@ -14,8 +14,6 @@ export class Title extends Block<ITitle> {
 		super({ tag, addClass, text });
 	}
 	protected render() {
-		console.log(this);
-
 		return template({ ...this.props });
 	}
 }

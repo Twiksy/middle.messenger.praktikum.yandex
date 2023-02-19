@@ -1,6 +1,27 @@
+import { pathNames } from './../../utils/Router/routesEnum';
 import { Block } from "../../utils";
+import router from "../../utils/Router/Router"
+import { routesPaths } from '../../utils/Router/routesEnum';
 export class Profile extends Block {
 	static componentName = 'Profile';
+	protected getStateFromProps() {
+		this.state = {
+			onSetting: (e: Event) => {
+				e.preventDefault()
+				router.go(routesPaths.setting)
+			},
+			onPassChange: (e: Event) => {
+				e.preventDefault()
+				router.go(routesPaths.passChange)
+			},
+			onSign: (e: Event) => {
+				e.preventDefault()
+				router.go(routesPaths.sign)
+			}
+		};
+	}
+
+
 	protected render(): string {
 		return `
     {{#LayoutAside}}
@@ -37,12 +58,14 @@ export class Profile extends Block {
 		</div>
 				<div class="profile__handle">
 					<div class="profile__row">
-						<a class="profile-item__label" href="#">Change profile</a>
+						{{{MainLink className="profile-item__label" onClick=onSetting innerLink="Change profile" }}}
 					</div>
 					<div class="profile__row">
-						<a class="profile-item__label" href="#">Change password</a>
+						{{{MainLink className="profile-item__label" onClick=onPassChange innerLink="Change password" }}}
+						<a class="profile-item__label" href="#"></a>
 					</div>
 					<div class="profile__row">
+						{{{MainLink className="profile-item__label" onClick=onSign innerLink="Change password" }}}
 						<a class="profile-item__label" href="#">Logout</a>
 					</div>
 				</div>

@@ -22,5 +22,5 @@ registerComponent(InputBlock);
 document.addEventListener("DOMContentLoaded", function () {
   const page = new ProfileChange();
 
-  renderDOM(page);
+  renderDOM('app', page);
 });
