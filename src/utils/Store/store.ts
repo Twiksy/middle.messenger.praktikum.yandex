@@ -1,26 +1,23 @@
-import EventBus from "../EventBus"
-import { set } from "../set"
-import { User } from "../../api/auth-api"
+import { set } from '../../helpers/helpers';
+import EventBus from '../EventBus';
+
 
 export enum StoreEvents {
-  Updated = "updated"
-}
-
-export interface State {
-  user: User,
+  Updated = 'updated',
 }
 
 class Store extends EventBus {
-  private state: any = {}
+  private state = {
+  };
 
   public getState() {
-    return this.state
+    return this.state;
   }
 
-  public set(path: string, value: any) {
-    set(this.state, path, value)
-    this.emit(StoreEvents.Updated)
+  public set(path: string, value: unknown) {
+    set(this.state, path, value);
+    this.emit(StoreEvents.Updated);
   }
 }
 
-export default new Store()
+export default new Store();

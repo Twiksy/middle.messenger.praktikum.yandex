@@ -1,49 +1,46 @@
-import { IChatItem } from "./../../components/chatItem/chatItem";
+import { TPropsDefault } from './../../types/Interfaces';
+import { IChatItem } from "../../types/Interfaces";
 import { Block } from "../../utils";
 
-type IChats = Array<IChatItem>;
 
-const chats: IChats = [
-	{
-		chatName: "Max",
-		chatPreview: "lorem ipsum",
-		lastTime: "11.11",
-	},
-	{
-		chatName: "Max",
-		chatPreview: "lorem ipsum",
-		lastTime: "11.11",
-	},
-	{
-		chatName: "Max",
-		chatPreview: "lorem ipsum",
-		lastTime: "11.11",
-	},
-	{
-		chatName: "Max",
-		chatPreview: "lorem ipsum",
-		lastTime: "11.11",
-		notification: "11",
-		isYour: true,
-	},
-];
 
-export class LayoutChat extends Block<ILayoutChatProps> {
+interface ILayoutProps {
+	chats: Array<IChatItem> | [],
+}
+
+export class LayoutChat extends Block<ILayoutProps> {
 	static componentName = 'LayoutChat';
+
+	constructor(props: ILayoutProps) {
+		super(props)
+		this.setProps({
+			chats: this.props.store,
+		});
+	}
+
+
 	protected render(): string {
+		console.log(this.props);
+
+		const chats = [this.props]
+
+
 		const chatsItems = chats.map((el) => {
-			return `<li class="messendger__chats-elem">
-			{{{ChatItem chatName="${el.chatName}" chatPreview="${el.chatPreview}" 
-			src="${el.src ? el.src : ""}" 
-			isYour="${el.isYour ? true : ""}"
-			notification="${el.notification ? el.notification : ""}"
-			lastTime="${el.lastTime}" }}}
-		</li>`})
+			let time = null
+			// 	if (el.last_message) {
+			// 		time = new Date(el.last_message.time).toLocaleTimeString()
+			// 	}
+			// 	return `<li class="messendger__chats-elem">
+			// 	{{{ChatItem title="${el.title}" chatPreview="${el.last_message?.content}" 
+			// 	src="${el.last_message?.user.avatar ? el.last_message?.user.avatar : ""}" 
+			// 	unread_count="${el.unread_count ? el.unread_count : ""}"
+			// 	time="${time}" }}}
+			// </li>`
+		})
 		return `
 			<div class="messendger__wrapper">
 				{{{Aside}}}
-				
-				<div class="messendger__chats">
+					<div class="messendger__chats">
 					{{{Search addClass="messendger__chats-search"}}}
 					<ul class="messendger__chats-list">
 					${chatsItems.join("")}
@@ -54,3 +51,4 @@ export class LayoutChat extends Block<ILayoutChatProps> {
     `;
 	}
 }
+

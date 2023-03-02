@@ -1,5 +1,5 @@
 import { Block } from "../../utils";
-import router from "../../utils/Router/Router"
+import { router } from "../../utils/Router/Router"
 import { routesPaths } from '../../utils/Router/routesEnum';
 export class ChangePassword extends Block {
   static componentName = 'ChangePassword';

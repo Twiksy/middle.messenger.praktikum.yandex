@@ -6,7 +6,15 @@ export type TPropsDefault = {
   [propName: string]: any;
 };
 
+export type AppState = {
+  appIsInited: boolean;
+  isLoading: boolean;
+  user: IUser | null;
+};
+
+
 export interface IUser {
+  id: number,
   avatar: string;
   display_name: string;
   email: string;
@@ -23,7 +31,7 @@ export interface ILastMessage {
   user: IUser;
 }
 
-export interface IChat {
+export interface IChatItem {
   avatar: string | null;
   created_by: number;
   id: number;
@@ -87,12 +95,12 @@ export interface ISignForm {
   id: string;
 }
 
-export interface ILoginFormModel {
+export interface ILoginForm {
   login: string;
   password: string;
 }
 
-export interface RegFormModel {
+export interface ISignUp {
   email: string;
   login: string;
   first_name: string;

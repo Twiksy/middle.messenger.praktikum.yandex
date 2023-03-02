@@ -1,3 +1,4 @@
+import { LoginController } from './controllers/signUpControl';
 import { ErrorPage } from './pages/404/ErrorPage';
 import { EmptyChat } from './pages/emptyChat/EmptyChat';
 import { Aside } from './blocks/aside/Aside';
@@ -17,15 +18,14 @@ import { LayoutAside } from './layouts/AsideLayout/Chat';
 import { LayoutChat } from './layouts/chat/Chat';
 import { SignIn } from './pages/SingIn/SingIn';
 import { Register } from './pages/register/Register';
-import { registerComponent, renderDOM } from './utils';
+import { registerComponent } from './utils';
 import { MainLink } from './components/link/Link';
 import { routesPaths } from './utils/Router/routesEnum';
-
-import router from "./utils/Router/Router"
+import { router } from "./utils/Router/Router"
 import { Profile } from './pages/profile/Profile';
 import { ProfileChange } from './pages/profileChange/ProfileChange';
-import { Error500 } from './pages/500/Error500';
 import { ChangePassword } from './pages/changePassword/ChangePassword';
+import Store from './utils/Store/store';
 
 registerComponent(Button);
 registerComponent(Aside);
@@ -44,30 +44,27 @@ registerComponent(InputBlock);
 registerComponent(ButtonImg);
 registerComponent(MainLink);
 
-
+declare global {
+	interface Window {
+		store;
+	}
+}
 
 
 window.addEventListener("DOMContentLoaded", async () => {
+	const store = Store;
+	window.store = store;
 	router
+		.setUnprotectedPaths(['/', '/signup'])
+		.onRoute(LoginController.checkAuth)
+		.onNotRoute(LoginController.checkNotAuth)
 		.use("/", new SignIn())
 		.use(routesPaths.sign, new SignIn())
 		.use(routesPaths.reg, new Register())
-		.use(routesPaths.chats, new EmptyChat())
+		.use(routesPaths.chats, new EmptyChat({ chats: store.getState().chatsItems }))
 		.use(routesPaths.profile, new Profile())
 		.use(routesPaths.setting, new ProfileChange())
 		.use(routesPaths.passChange, new ChangePassword())
-		.use(routesPaths.error404, new ErrorPage())
-		.use(routesPaths.error500, new Error500())
-
+		.use('*', new ErrorPage())
 		.start()
 })
-// document.addEventListener("DOMContentLoaded", function () {
-
-
-// 	const sign = new SignIn();
-
-// 	renderDOM('app', sign);
-
-// });
-
-

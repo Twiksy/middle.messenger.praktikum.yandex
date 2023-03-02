@@ -1,12 +1,14 @@
 import { fieldType } from './../../types/validateTypes';
 import { validate } from "../../helpers/validate";
 import { Block } from "../../utils";
-import router from "../../utils/Router/Router"
+import { router } from "../../utils/Router/Router"
 import { routesPaths } from '../../utils/Router/routesEnum';
-import authController from '../../controllers/auth-controller';
+import { LoginController } from '../../controllers/signUpControl';
+import Store from '../../utils/Store/store'
 
 export class SignIn extends Block {
   static componentName = 'SignIn';
+
   protected getStateFromProps() {
     this.state = {
       onValidate: (e: Event) => {
@@ -33,14 +35,17 @@ export class SignIn extends Block {
           fields[input.name] = input.value
         })
         if (errors === 0) {
-          // router.go(routesPaths.chats)
-          authController.signin(fields)
+          const data = fields
+          LoginController.login(fields);
+          router.go(routesPaths.chats)
         }
       },
       onRegister: (e: Event) => {
         e.preventDefault()
         router.go(routesPaths.reg)
-      }
+      },
+
+      store: Store
     };
   }
 

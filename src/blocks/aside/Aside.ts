@@ -7,8 +7,9 @@ import chatsIcon from "../../../static/icons/chats.svg";
 import settingIcon from "../../../static/icons/setting.svg";
 import exitIcon from "../../../static/icons/exit.svg";
 
-import router from "../../utils/Router/Router"
+import { router } from "../../utils/Router/Router"
 import { routesPaths } from '../../utils/Router/routesEnum';
+import { UserController } from '../../controllers/userControllers';
 
 // interface IItem {
 //   hoverText: string;
@@ -28,10 +29,14 @@ export class Aside extends Block {
   protected pathNames: pathNames
   protected getStateFromProps() {
     this.state = {
-      onSignIn: (e: Event) => {
+      onAsideItem: (e: Event) => {
         e.preventDefault()
         const pathName = e.target.closest('.messendger__aside-link').getAttribute('pathName')
         router.go(routesPaths[pathName])
+      },
+      onLogout: (e: Event) => {
+        e.preventDefault()
+        UserController.logoutUser();
       },
       items: [
         {
@@ -39,7 +44,7 @@ export class Aside extends Block {
         },
         { hoverText: "Chats", svgText: chatsIcon, pathName: "chats" },
         { hoverText: "Settings", svgText: settingIcon, pathName: "setting" },
-        { hoverText: "Exit", svgText: exitIcon, pathName: "sign" }
+        { hoverText: "Exit", svgText: exitIcon, isLogut: true, }
       ],
 
     };
@@ -48,9 +53,15 @@ export class Aside extends Block {
   protected render(): string {
     const itemsLi = this.state.items.map(
       (i) => {
-        return `<li class="messendger__aside-elem">
-        {{{AsideItem hoverText="${i.hoverText}" svgText="${i.svgText}" pathName="${i.pathName}" pathChange=onSignIn}}}
-        </li>`
+        if (i.pathName) {
+          return `<li class="messendger__aside-elem">
+          {{{AsideItem hoverText="${i.hoverText}" svgText="${i.svgText}" pathName="${i.pathName}" onClick=onAsideItem}}}
+          </li>`
+        } else if (i.isLogut) {
+          return `<li class="messendger__aside-elem">
+          {{{AsideItem hoverText="${i.hoverText}" svgText="${i.svgText}" onClick=onLogout}}}
+          </li>`
+        }
       }
     );
     return `<aside class="messendger__aside">

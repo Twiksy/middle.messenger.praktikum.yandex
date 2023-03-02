@@ -1,6 +1,6 @@
 import { pathNames } from './../../utils/Router/routesEnum';
 import { Block } from "../../utils";
-import router from "../../utils/Router/Router"
+import { router } from "../../utils/Router/Router"
 import { routesPaths } from '../../utils/Router/routesEnum';
 export class Profile extends Block {
 	static componentName = 'Profile';
