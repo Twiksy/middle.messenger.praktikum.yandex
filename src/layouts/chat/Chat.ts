@@ -7,23 +7,23 @@ import { Block } from "../../utils";
 interface ILayoutProps {
 	chats: Array<IChatItem> | [],
 }
-
-export class LayoutChat extends Block<ILayoutProps> {
+type TProps = {} & TPropsDefault;
+export class LayoutChat extends Block<TProps> {
 	static componentName = 'LayoutChat';
 
 	constructor(props: ILayoutProps) {
 		super(props)
-		this.setProps({
-			chats: this.props.store,
-		});
+		// this.setProps({
+		// 	chats: this.props,
+		// });
 	}
 
 
 	protected render(): string {
+
 		console.log(this.props);
 
-		const chats = [this.props]
-
+		const chats = []
 
 		const chatsItems = chats.map((el) => {
 			let time = null

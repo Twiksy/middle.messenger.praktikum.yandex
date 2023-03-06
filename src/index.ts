@@ -25,7 +25,7 @@ import { router } from "./utils/Router/Router"
 import { Profile } from './pages/profile/Profile';
 import { ProfileChange } from './pages/profileChange/ProfileChange';
 import { ChangePassword } from './pages/changePassword/ChangePassword';
-import Store from './utils/Store/store';
+import { UserChatController } from './controllers/chatController';
 
 registerComponent(Button);
 registerComponent(Aside);
@@ -44,16 +44,12 @@ registerComponent(InputBlock);
 registerComponent(ButtonImg);
 registerComponent(MainLink);
 
-declare global {
-	interface Window {
-		store;
-	}
-}
-
-
 window.addEventListener("DOMContentLoaded", async () => {
-	const store = Store;
-	window.store = store;
+
+	if (LoginController.checkAuth) {
+		UserChatController
+	}
+
 	router
 		.setUnprotectedPaths(['/', '/signup'])
 		.onRoute(LoginController.checkAuth)
@@ -61,7 +57,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 		.use("/", new SignIn())
 		.use(routesPaths.sign, new SignIn())
 		.use(routesPaths.reg, new Register())
-		.use(routesPaths.chats, new EmptyChat({ chats: store.getState().chatsItems }))
+		.use(routesPaths.chats, new EmptyChat())
 		.use(routesPaths.profile, new Profile())
 		.use(routesPaths.setting, new ProfileChange())
 		.use(routesPaths.passChange, new ChangePassword())

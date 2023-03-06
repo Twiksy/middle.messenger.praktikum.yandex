@@ -10,20 +10,18 @@ import { withstore } from "../../utils/Store/withStore";
 
 
 type TProps = {} & TPropsDefault;
+UserChatController.getAllChats()
+
 export class Chats extends Block<TProps> {
   static componentName = 'EmptyChat';
   constructor(props) {
-    UserChatController.getAllChats()
     super(props);
-    this.setState({
-      chats: this.props.store.getState().chatsItems,
-    });
   }
   protected render(): string {
-    console.log(this.state.state);
+    console.log(this.props.chatsData);
 
     return `
-	  {{#LayoutChat chats = this.state.state}}
+	  {{#LayoutChat chats = this.props.chatsData}}
     <div class="messandger-content messandger-content_empty">
       <div class="messandger-content__description">
         <p>Select a chat to send a message</p>
@@ -34,7 +32,8 @@ export class Chats extends Block<TProps> {
   }
 }
 
-export const EmptyChat = withstore(Chats);
+const EmptyChatWrpa = connect((state) => ({
+  chatsData: state.chatsItems,
+}));
 
-
-
+export const EmptyChat = EmptyChatWrpa(Chats)
