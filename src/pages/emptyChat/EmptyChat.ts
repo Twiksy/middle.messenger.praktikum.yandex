@@ -18,7 +18,7 @@ export class Chats extends Block<TProps> {
     super(props);
   }
   protected render(): string {
-    console.log(this.props.chatsData);
+    // console.log(this.props.chatsData);
 
     return `
 	  {{#LayoutChat chats = this.props.chatsData}}
