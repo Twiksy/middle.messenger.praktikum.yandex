@@ -20,11 +20,7 @@ export class LayoutChat extends Block<TProps> {
 
 
 	protected render(): string {
-
-		console.log(this.props);
-
 		const chats = []
-
 		const chatsItems = chats.map((el) => {
 			let time = null
 			// 	if (el.last_message) {

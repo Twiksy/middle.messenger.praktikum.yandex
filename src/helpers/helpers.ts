@@ -59,7 +59,7 @@ const isPlainObject = (value: unknown): value is PlainObject =>
     value.constructor === Object &&
     Object.prototype.toString.call(value) === '[object Object]';
 
-const isArray = (value: unknown): value is [] => Array.isArray(value);
+export const isArray = (value: unknown): value is [] => Array.isArray(value);
 
 const isArrayOrObject = (value: unknown): value is [] | PlainObject => isPlainObject(value) || isArray(value);
 

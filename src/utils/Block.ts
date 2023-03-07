@@ -1,6 +1,8 @@
 import EventBus from './EventBus';
 import { nanoid } from 'nanoid';
 import Handlebars from 'handlebars';
+import { isArray } from '../helpers/helpers';
+import { TPropsDefault } from '../types/Interfaces';
 
 type Events = Values<typeof Block.EVENTS>;
 
@@ -64,9 +66,8 @@ export default class Block<P = any> {
 	_registerEvents(eventBus: EventBus<Events>) {
 		eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
 		eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
-		eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
-		eventBus.on(Block.EVENTS.FLOW_CWU, this._componentWillUnmount.bind(this));
 		eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+		eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
 	}
 
 	_createResources() {
@@ -77,19 +78,34 @@ export default class Block<P = any> {
 		this.state = {};
 	}
 
-	init() {
+	// init() {
+	// 	this._createResources();
+	// 	this.eventBus().emit(Block.EVENTS.FLOW_RENDER, this.props);
+	// }
+
+	init(): void {
 		this._createResources();
+		// this.dispatchComponentDidMount();
 		this.eventBus().emit(Block.EVENTS.FLOW_RENDER, this.props);
 	}
 
-	_componentDidMount(props: P) {
-		this._checkInDom();
+	private _componentDidMount(): void {
+		this.componentDidMount();
 
-		this.componentDidMount(props);
+		Object.values(this.children).forEach((child) => {
+			if (isArray(child)) {
+				child.forEach((ch: Block<TProps>) => ch.dispatchComponentDidMount());
+			} else {
+				child.dispatchComponentDidMount();
+			}
+		});
 	}
 
-	componentDidMount(props: P) { }
+	componentDidMount(): void { }
 
+	dispatchComponentDidMount(): void {
+		this.eventBus().emit(Block.EVENTS.FLOW_CDM, this.props);
+	}
 	_componentWillUnmount() {
 		this.eventBus().destroy();
 		this.componentWillUnmount();
@@ -97,15 +113,17 @@ export default class Block<P = any> {
 
 	componentWillUnmount() { }
 
-	_componentDidUpdate(oldProps: P, newProps: P) {
+	private _componentDidUpdate(oldProps: TPropsDefault, newProps: TPropsDefault): void {
 		const response = this.componentDidUpdate(oldProps, newProps);
-		if (!response) {
-			return;
+		if (response) {
+			this._render();
 		}
-		this._render();
 	}
 
-	componentDidUpdate(oldProps: P, newProps: P) {
+	componentDidUpdate(oldProps: TPropsDefault, newProps: TPropsDefault): boolean {
+		if (oldProps || newProps) {
+			return true;
+		}
 		return true;
 	}
 
@@ -160,28 +178,28 @@ export default class Block<P = any> {
 		return this.element!;
 	}
 
-	_makePropsProxy(props: any): any {
-		// Можно и так передать this
-		// Такой способ больше не применяется с приходом ES6+
+
+	private _makePropsProxy(props: any): TPropsDefault {
 		const self = this;
 
-		return new Proxy(props as unknown as object, {
-			get(target: Record<string, unknown>, prop: string) {
-				const value = target[prop];
-				return typeof value === 'function' ? value.bind(target) : value;
-			},
-			set(target: Record<string, unknown>, prop: string, value: unknown) {
+		return new Proxy(props as any, {
+			set(target, prop, value) {
 				target[prop] = value;
-
-				// Запускаем обновление компоненты
-				// Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
-				self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+				self.eventBus().emit(Block.EVENTS.FLOW_CDU);
 				return true;
 			},
-			deleteProperty() {
-				throw new Error('Нет доступа');
+			get(target, prop: string) {
+				if (prop?.indexOf('_') === 0) {
+					throw new Error('Доступ отсутствует!');
+				}
+
+				const value = target[prop] as any;
+				return typeof value === 'function' ? value.bind(target) : value;
 			},
-		}) as unknown as P;
+			deleteProperty() {
+				throw new Error('Доступ отсутствует!');
+			},
+		});
 	}
 
 	_createDocumentElement(tagName: string) {
@@ -213,19 +231,20 @@ export default class Block<P = any> {
 	}
 
 	_compile(): DocumentFragment {
-		const fragment = document.createElement('template');
+
 
 		/**
 		 * Рендерим шаблон
 		 */
 		const template = Handlebars.compile(this.render());
+
+		const fragment = document.createElement('template');
 		fragment.innerHTML = template({
 			...this.state,
 			...this.props,
 			children: this.children,
 			refs: this.refs,
 		});
-
 		/**
 		 * Заменяем заглушки на компоненты
 		 */
