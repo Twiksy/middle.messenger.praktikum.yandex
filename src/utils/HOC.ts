@@ -24,38 +24,15 @@ type TProps = {} & TPropsDefault;
 //     };
 //   };
 // }
+export function connect(Component, mapStateToProps) {
+  return class extends Component {
+    constructor(tag, props = {}) {
 
-export function connect<P extends TProps>(WrappedBlock: BlockClass<P>) {
-  // @ts-expect-error No base constructor has the specified
-  return class extends WrappedBlock<P> {
-    public static componentName = WrappedBlock.componentName || WrappedBlock.name;
+      super(tag, { ...props, ...mapStateToProps(store.getState()) });
 
-    constructor(props: P) {
-      super({ ...props, store: store.getState() });
+      store.on(StoreEvents.Updated, () => {
+        this.setProps({ ...mapStateToProps(store.getState()) });
+      });
     }
-
-    __onChangeStoreCallback = () => {
-      /**
-       * TODO: проверить что стор реально обновлен
-       * и прокидывать не целый стор, а необходимые поля
-       * с помощью метода mapStateToProps
-       */
-      console.log(store);
-
-
-      // @ts-expect-error this is not typed
-      this.setProps({ ...this.props, store: store.getState() });
-    }
-
-    componentDidMount(props: P) {
-      super.componentDidMount(props);
-      store.on(StoreEvents.Updated, this.__onChangeStoreCallback);
-    }
-
-    componentWillUnmount() {
-      super.componentWillUnmount();
-      store.on(StoreEvents.Updated, this.__onChangeStoreCallback);
-    }
-
-  } as BlockClass<Omit<P, 'store'>>;
+  };
 }

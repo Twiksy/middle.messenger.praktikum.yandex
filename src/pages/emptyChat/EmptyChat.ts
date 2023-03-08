@@ -18,7 +18,7 @@ export class Chats extends Block<TProps> {
     super(props);
   }
   protected render(): string {
-    console.log(this.props.store);
+    console.log(this.props);
 
     return `
 	  {{#LayoutChat chats = this.props.chatsData}}
@@ -34,4 +34,5 @@ export class Chats extends Block<TProps> {
 
 // const EmptyChatWrpa = connect();
 
-export const EmptyChat = connect(Chats)
+export const EmptyChat = connect(Chats,
+  state => state ?? {})
